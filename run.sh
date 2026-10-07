@@ -14,7 +14,7 @@ set -Eeuo pipefail
 #   API_PORT=8000
 #   SERVICE_NAME=newsroom-api
 
-PROJECT_ROOT="${PROJECT_ROOT:-/home/soft/domains/news.soft.io.vn/app}"
+PROJECT_ROOT="${PROJECT_ROOT:-/home/soft/apps/softnews}"
 FRONTEND_DIR="${FRONTEND_DIR:-$PROJECT_ROOT/frontend}"
 BACKEND_DIR="${BACKEND_DIR:-$PROJECT_ROOT/backend}"
 WEB_ROOT="${WEB_ROOT:-/home/soft/domains/news.soft.io.vn/public_html}"

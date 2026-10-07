@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "backend": "cd backend && symfony server:start --port=8000",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+security:
+    password_hashers:
+        App\Entity\User: 'auto'
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: app_user_provider
+            custom_authenticators:
+                - App\Security\SessionAuthenticator
+    access_control:
+        - { path: ^/api/login$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/posts/[0-9]+/comments$, roles: PUBLIC_ACCESS }
+        - { path: ^/api/posts$, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/posts/[0-9]+$, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/categories$, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api/tags$, roles: PUBLIC_ACCESS, methods: [GET] }
+        - { path: ^/api, roles: ROLE_ADMIN }
